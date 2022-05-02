@@ -9,6 +9,9 @@
     </v-app-bar>
 
     <v-main>
+      <br>
+      <NewMessage />
+      <br>
       <Messages />
     </v-main>
   </v-app>
@@ -16,12 +19,14 @@
 
 <script>
 import Messages from './components/Messages';
+import NewMessage from './components/NewMessage'
 
 export default {
   name: 'App',
 
   components: {
     Messages,
+    NewMessage,
   },
 
   data: () => ({

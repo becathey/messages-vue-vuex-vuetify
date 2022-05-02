@@ -1,6 +1,9 @@
 <template>
-    <div>
-        <h4 class="display-1">Messages</h4>
+    <v-col sm="8" offset-sm="2">
+        <v-card>
+            <v-toolbar dark>
+        <v-toolbar-title>Messages</v-toolbar-title>
+            </v-toolbar>
         
         <v-list>
       <v-list-item
@@ -13,7 +16,8 @@
 
       </v-list-item>
     </v-list>
-    </div>
+        </v-card>
+    </v-col>
 </template>
 
 <script>
