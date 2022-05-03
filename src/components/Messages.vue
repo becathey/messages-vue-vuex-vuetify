@@ -25,10 +25,13 @@ import axios from 'axios'
 export default {
     data() {
         return {
-            messages: ["hello", "hi", "hey"]
+            messages: []
         }
     },
     async created() {
+        this.$root.$on('newMessage', message => {
+            this.messages.push(message)
+        })
         this.messages = (await axios.get('http://localhost:3000/messages')).data
     }
 }

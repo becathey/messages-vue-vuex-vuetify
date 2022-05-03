@@ -15,6 +15,7 @@
           md="4"
         >
           <v-text-field
+            v-model="messageBody"
             label="Message"
             required
           ></v-text-field>
@@ -34,11 +35,18 @@ import axios from 'axios'
 export default {
     data() {
         return {
-            messages: ["hello", "hi", "hey"]
+            messageBody: ""
         }
     },
-    async created() {
-        this.messages = (await axios.get('http://localhost:3000/messages')).data
+    methods: {
+        async submit() {
+            try {
+                let msg = (await axios.post('http://localhost:3000/messages', {message: this.messageBody})).data
+                this.$root.$emit('newMessage', msg.message)
+            } catch (error) {
+                console.log(error)
+            }
+        }
     }
 }
 </script>
