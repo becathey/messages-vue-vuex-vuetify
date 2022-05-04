@@ -7,7 +7,7 @@
         
         <v-list>
       <v-list-item
-        v-for="(message, index) in store.state.messages" :key="index"
+        v-for="(message, index) in $store.state.messages" :key="index"
       >
 
         <v-list-item-content>
@@ -21,17 +21,9 @@
 </template>
 
 <script>
-import axios from 'axios'
-import store from '../store'
-
 export default {
-    data() {
-        return {
-            store
-        }
-    },
     async created() {
-        store.state.messages = (await axios.get('http://localhost:3000/messages')).data
+        this.$store.dispatch('getMessages')
     }
 }
 </script>

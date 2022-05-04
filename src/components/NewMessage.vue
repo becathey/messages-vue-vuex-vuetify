@@ -31,9 +31,6 @@
 </template>
 
 <script>
-import axios from 'axios'
-import store from '../store'
-
 export default {
     data() {
         return {
@@ -43,8 +40,7 @@ export default {
     methods: {
         async submit() {
             try {
-                let msg = (await axios.post('http://localhost:3000/messages', {message: this.messageBody})).data
-                store.state.messages.push(msg.message)
+                this.$store.dispatch('newMessage', this.messageBody)
             } catch (error) {
                 console.log(error)
             }
