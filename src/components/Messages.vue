@@ -7,7 +7,7 @@
         
         <v-list>
       <v-list-item
-        v-for="(message, index) in $store.state.messages" :key="index"
+        v-for="(message, index) in $store.state.messages" :key="index" :to="'message/' + index"
       >
 
         <v-list-item-content>

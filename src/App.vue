@@ -5,10 +5,10 @@
       color="primary"
       dark
     >
-      <v-btn flat to="/">Messages</v-btn>
-      <v-btn class="ms-2" flat to="/NewMessage">New Message</v-btn>
+      <v-btn text to="/">Messages</v-btn>
+      <v-btn class="ms-2" text to="/NewMessage">New Message</v-btn>
       <v-spacer />
-      <v-btn flat>Login</v-btn>
+      <v-btn text>Login</v-btn>
     </v-app-bar>
 
     <v-main>
