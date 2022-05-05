@@ -4,7 +4,7 @@
             <v-toolbar dark>
                 <v-toolbar-title>Message</v-toolbar-title>
             </v-toolbar>
-            <v-card-text>{{messageBody}}</v-card-text>
+            <v-card-text>{{message.text}}</v-card-text>
         </v-card>
     </v-flex>
 </template>
@@ -14,11 +14,11 @@
 export default {
     data() {
         return {
-            messageBody: ""
+            message: ""
         }
     },
     async created() {
-        this.messageBody = (await this.$store.dispatch('getMessage', this.$route.params.id)).data
+        this.message = (await this.$store.dispatch('getMessage', this.$route.params.id)).data
     }
 }
 </script>
