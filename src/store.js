@@ -28,10 +28,11 @@ export default new Vuex.Store({
         async getMessage(_, id) {
             return axios.get(`http://localhost:3000/messages/${id}`)
         },
-        async register(_, registerData) {
-            let user = (await axios.post("http://localhost:3000/register", registerData)).data
-            localStorage.setItem("token", user.id)
-            axios.defaults.headers.common['Authorization'] = user.id
+        // eslint-disable-next-line no-unused-vars
+        async register({commit}, registerData) {
+            let token = (await axios.post("http://localhost:3000/register", registerData)).data
+            localStorage.setItem("token", token)
+            axios.defaults.headers.common['Authorization'] = token
         }
     }
 })
